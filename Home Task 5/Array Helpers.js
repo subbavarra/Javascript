@@ -1,44 +1,35 @@
 Array.prototype.square = function() {
-	var array=[];
-  for(var x of this)  {
-  array.push(x*x);
-  }
-  return array;
+return this.map(function(x) {
+   return x * x;
+});
 }
 Array.prototype.cube = function() {
-	var array=[];
-  for(var x of this)  {
-  array.push(x*x*x);
-  }
-  return array;
+return this.map(function(x) {
+   return x * x*x;
+});
 }
 Array.prototype.sum = function() {
-	var total=0;
-  for(var x of this)  {
-  total=total+x;
-  }
-  return total;
+
+return this.reduce(function(a,b){return a+b;},0);
 }
 Array.prototype.average = function() {
-	var avg=0;
-  for(var x of this)  {
-  avg=avg+x;
-  }
-  return avg/this.length;
+return this.sum()/this.length;
 }
+
 Array.prototype.even = function() {
-	var array=[];
-  for(var x of this)  {
-  if(x%2==0)
-  array.push(x);
-  }
-  return array;
+ var ret = [];
+ this.map(function(val) { 
+     if(val%2==0)
+   ret.push(val);
+});
+   return ret;
 }
+
 Array.prototype.odd = function() {
-	var array=[];
-  for(var x of this)  {
-   if(x%2==1)
-  array.push(x);
-  }
-  return array;
+ var ret = [];
+ this.map(function(val) { 
+     if(val%2==1)
+   ret.push(val);
+});
+   return ret;
 }
